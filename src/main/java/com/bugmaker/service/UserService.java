@@ -1,28 +1,21 @@
 package com.bugmaker.service;
 
-import com.bugmaker.entity.User;
-
 import java.util.List;
+import com.bugmaker.entity.User;
 
 /**
  * Created by kinthon on 17-6-23.
  */
 public interface UserService {
-    //-------自定义函数---------//
-    public boolean login(User user);
-
-    public boolean register(User user);
-
-    public boolean changePassword(User user);
-//-------自定义函数---------//
-
     public boolean addUser(User user);
+
+    public boolean login(User user);
 
     public List getAllUser();
 
-    public User getUserById(String id);
+    public User getUserById(int id);
 
     public boolean updateUser(User user);
 
-    public boolean deleteUser(String id);
+    public boolean deleteUser(int id);
 }

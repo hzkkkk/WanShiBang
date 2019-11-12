@@ -1,14 +1,17 @@
 package com.bugmaker.service.impl;
 
 import com.bugmaker.dao.UserDao;
-import com.bugmaker.entity.User;
 import com.bugmaker.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 
+import com.bugmaker.entity.User;
 
+/**
+ * Created by kinthon on 17-6-23.
+ */
 //注入服务
 @Service("userService")
 public class UserServiceImpl implements UserService{
@@ -16,46 +19,6 @@ public class UserServiceImpl implements UserService{
     @Resource
     private UserDao userDao;
 
-    //-------自定义函数---------//
-
-    @Override
-    public boolean login(User user) {
-        if(this.userDao.getUser(user.getAccountNumber()) != null) {
-            System.out.println("查询结果true");
-            return true;
-        }else{
-            System.out.println("查询结果false");
-            return false;
-        }
-    }
-
-
-    @Override
-    public boolean register(User user) {
-        if(this.userDao.findUser(user)) {
-            System.out.println("用户已存在");
-            return false;
-        } else {
-            System.out.println("用户检验通过");
-
-            if (addUser(user)) {
-                System.out.println("注册成功");
-                return true;
-            }
-            else {
-                System.out.println("注册失败");
-                return false;
-            }
-        }
-    }
-
-
-    @Override
-    public boolean changePassword(User user) {
-        return this.userDao.changePassword(user);
-    }
-
-    //-------自定义函数---------//
 
     @Override
     public boolean addUser(User user) {
@@ -64,12 +27,17 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public boolean login(User user) {
+        return this.userDao.login(user);
+    }
+
+    @Override
     public List getAllUser() {
         return this.userDao.getUser();
     }
 
     @Override
-    public User getUserById(String id) {
+    public User getUserById(int id) {
         return this.userDao.getUser(id);
     }
 
@@ -81,7 +49,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public boolean deleteUser(String id) {
+    public boolean deleteUser(int id) {
         this.userDao.delete(id);
         return true;
     }
