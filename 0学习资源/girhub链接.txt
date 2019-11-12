@@ -1,0 +1,27 @@
+推荐参考：
+
+SSH-JSON-master   https://github.com/Gerry-Yu/SSH-JSON  
+
+mercury-stable    https://github.com/Skarafaz/mercury   安卓连ssh
+
+（缺少）ssh-master       https://github.com/melodychiu/ssh       ssh   json
+
+
+（缺少）SSH-master:  https://github.com/VincentVanYuan/SSH    Struts2   +  Spring4  +   Hibernate5
+
+Shop-master:  https://github.com/Joryun/Shop       SpringMVC4，Spring4，Hibernate4
+
+SSHTemplate-master:  https://github.com/GYiyouth/SSHTemplate      struts2   spring5   hibernate5
+
+ECollaborationMaven-master：    https://github.com/GYiyouth/ECollaborationMaven          struts2 +  spring4 +  hibernate 5
+啥资料都没有。不过提交很多，可以看看他的提交记录。来看看后续代码优化方向。
+
+
+这一篇有教程
+（jdk7） SSHLearning_pure_version-master: https://github.com/sysuKinthon/SSHLearning_pure_version    struts2  spring3 hibernate3
+
+（jdk7）fo-ssh-master: https://github.com/panhainan/fo-ssh       SpringMVC +  Spring3  +  Hibernate4
+
+（jdk7）Elec-master: https://github.com/nibnait/Elec          struts2 spring3 hibernate3 
+
+（jdk7）BOS-master:https://github.com/LuckyZXL2016/BOS    （eclipse）mysql+struts2+spring+hibernate+easyui
