@@ -49,6 +49,12 @@ public class UserServiceImpl implements UserService{
         }
     }
 
+
+    @Override
+    public boolean changePassword(User user) {
+        return this.userDao.changePassword(user);
+    }
+
     //-------自定义函数---------//
 
     @Override

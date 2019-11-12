@@ -3,10 +3,7 @@ package com.bugmaker.action;
 import com.bugmaker.config.Configure;
 import com.bugmaker.entity.Orders;
 import com.bugmaker.service.OrdersService;
-import com.bugmaker.util.DataToString;
-import com.bugmaker.util.EntityToJsonUtil;
-import com.bugmaker.util.HttpConnection;
-import com.bugmaker.util.PrintUtil;
+import com.bugmaker.util.*;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
@@ -41,17 +38,15 @@ public class OrdersAction extends ActionSupport {
         //实例化输入,输入流
         connection.getObject(ServletActionContext.getRequest(),ServletActionContext.getResponse());
 
-        
         //根据日期转换为主键OrdersNumber
         Date current_date = new Date(); //获取系统时间
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String current_date_str = sdf.format(current_date);
-        String data_str = DataToString.transfer(current_date_str);
+        String data_str = DataToStringUtil.transfer(current_date_str);
         orders.setOrderNumber(data_str);
 
         //初始化orders_status为wait
         orders.setOrderStatus(Configure.orders_status.WAIT.toString());
-
 
         //DEBUG:辅助输出
         PrintUtil.print(orders);
@@ -67,5 +62,29 @@ public class OrdersAction extends ActionSupport {
         connection.sendObject(map);
     }
 
+    public void cancelOrders(){
+        Map<String,Object> map=new HashMap<String,Object>();
+        boolean state=false;
+        HttpConnection connection=new HttpConnection();
+        //实例化输入,输入流
+        connection.getObject(ServletActionContext.getRequest(),ServletActionContext.getResponse());
+
+        //获取订单状态的详细值
+        Orders orders_search = ordersService.getOrdersById(orders.getOrderNumber());
+        //更改订单状态
+        orders_search.setOrderStatus(Configure.orders_status.CANCEL.toString());
+
+        //DEBUG:辅助输出
+        PrintUtil.print(orders_search);
+
+        if(ordersService.updateOrders(orders_search)){
+            state=true;
+        }
+        else {
+            state=false;
+        }
+        map.put("state",state);
+        connection.sendObject(map);
+    }
 
 }

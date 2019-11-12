@@ -47,4 +47,9 @@ public interface UserDao {
      */
     public boolean findUser(User user);
 
+
+    /**
+     * 修改密码
+     */
+    public boolean changePassword(User user);
 }

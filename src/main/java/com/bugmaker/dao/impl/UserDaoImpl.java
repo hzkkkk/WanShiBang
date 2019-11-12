@@ -83,7 +83,23 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-    //-------自定义函数---------//
+
+    @Override
+    public boolean changePassword(User user) {
+        String hsql = "from User u where u.accountNumber=? and u.password=?";
+        System.out.println("sql:" + hsql);
+        Query query = sessionFactory.getCurrentSession().createQuery(hsql);
+        query.setString(0, user.getAccountNumber());
+        query.setString(1, user.getAccountNumber());
+        List<User> users = query.list();
+        if (users.size() >= 1) {
+            sessionFactory.getCurrentSession().update(user);
+            return true;
+        } else {
+            return false;
+        }
+    }
+        //-------自定义函数---------//
 
 
 }
