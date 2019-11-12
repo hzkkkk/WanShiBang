@@ -50,15 +50,10 @@ public class OrdersDaoImpl implements OrdersDao {
 
     //------------用主键查单个---------//
     @Override
-    public Orders getOrders(String orderNumber) {
-        return (Orders)sessionFactory.getCurrentSession().get(Orders.class, orderNumber);
+    public Orders getOrders(String accountNumber) {
+        return (Orders)sessionFactory.getCurrentSession().get(Orders.class, accountNumber);
     }
 
-//    //------------查询订单状态---------//
-//    @Override
-//    public Orders seekStatus(String orderStatus) {
-//        return (Orders)sessionFactory.getCurrentSession().get(Orders.class, orderStatus);
-//    }
 
     //-------自定义函数---------//
     //------------用张查单个---------//

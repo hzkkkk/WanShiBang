@@ -13,7 +13,7 @@ public class PrintUtil {
     }
 
     public static void print(Orders orders){
-        System.out.println("OrderNumber:"+orders.getOrderNumber());
+        System.out.println("OrdersNumber:"+orders.getOrderNumber());
         System.out.println("Title:"+orders.getTitle());
         System.out.println("Time:"+orders.getTime());
         System.out.println("Address:"+orders.getAddress());

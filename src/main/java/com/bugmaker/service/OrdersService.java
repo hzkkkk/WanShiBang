@@ -16,8 +16,6 @@ public interface OrdersService {
 
     public boolean addOrders(Orders orders);
 
-    //public boolean seekStatus(String ordersStatus);
-
     public List getAllOrders();
 
     public Orders getOrdersById(String id);

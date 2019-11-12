@@ -57,12 +57,6 @@ public class OrdersServiceImpl implements OrdersService {
         return true;
     }
 
-//    @Override
-//    public boolean seekStatus(String ordersStatus) {
-//        this.ordersDao.seekStatus(ordersStatus);
-//        return true;
-//    }
-
     @Override
     public List getAllOrders() {
         return this.ordersDao.getOrders();

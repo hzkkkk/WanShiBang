@@ -1,9 +1,9 @@
 package com.bugmaker.dao;
 
 import com.bugmaker.entity.Orders;
+import com.bugmaker.entity.Orders;
 
 import java.util.List;
-
 
 /**
  * Created by kinthon on 17-6-23.
@@ -16,12 +16,6 @@ public interface OrdersDao {
      */
     public void add(Orders order);
 
-
-//    /**
-//     * 查询订单状态
-//     * @param ordersStatus
-//     */
-//    public Orders seekStatus(String ordersStatus);
 
     /**
      * 根据用户id删除用户信息
@@ -42,10 +36,10 @@ public interface OrdersDao {
     public List getOrders();
 
     /**
-     * 根据用户orderNumber获取用户信息
-     * @param orderNumber
+     * 根据用户AccountNumber获取用户信息
+     * @param AccountNumber
      */
-    public Orders getOrders(String orderNumber);
+    public Orders getOrders(String AccountNumber);
 
 
 //    /**

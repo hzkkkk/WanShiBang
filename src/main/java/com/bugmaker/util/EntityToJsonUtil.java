@@ -27,7 +27,7 @@ public class EntityToJsonUtil {
         map.put("Seeker",orders.getSeeker());
         map.put("Helper",orders.getHelper());
         map.put("OrdersStatus",orders.getOrderStatus());
-        map.put("OrderNumber",orders.getOrderNumber());
+        map.put("OrdersNumber",orders.getOrderNumber());
     }
 
 }

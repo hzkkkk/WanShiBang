@@ -8,25 +8,6 @@ import java.util.List;
  * Created by kinthon on 17-6-23.
  */
 public interface UserDao {
-    //-------自定义函数---------//
-    /**
-     * 登录
-     */
-    public boolean login(User user);
-
-    /**
-     * 注册
-     */
-    public boolean register(User user);
-
-    /**
-     * 修改密码
-     */
-    public boolean changePassword(User user);
-
-    //-------自定义函数---------//
-
-
 
     /**
      * 添加并保存用户
@@ -35,6 +16,17 @@ public interface UserDao {
     public void add(User user);
 
 
+    /**
+     * 根据用户id删除用户信息
+     * @param AccountNumber
+     */
+    public void delete(String AccountNumber);
+
+    /**
+     * 根据主键更新用户信息
+     * @param user
+     */
+    public void update(User user);
 
 
     /**
@@ -43,23 +35,16 @@ public interface UserDao {
     public List getUser();
 
     /**
-     * 根据用户Id获取用户信息
-     * @param id
-     * @return
+     * 根据用户AccountNumber获取用户信息
+     * @param AccountNumber
      */
-    public User getUser(String id);
+    public User getUser(String AccountNumber);
+
 
     /**
-     * 更新用户信息
+     * 根据账户和密码获取用户信息
      * @param user
      */
-    public void update(User user);
-
-
-    /**
-     * 根据用户id删除用户信息
-     * @param id
-     */
-    public void delete(String id);
+    public boolean findUser(User user);
 
 }
