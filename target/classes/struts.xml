@@ -9,13 +9,16 @@
     <constant name="struts.devMode" value="false"/>
     <constant name="struts.objectFactory" value="spring" />
 
-    <package name="user" namespace="/" extends="struts-default,json-default">
-
+    <package name="user" namespace="/" extends="struts-default">
         <action name="user_*" class="userAction" method="{1}">
             <result name="success">/success.jsp</result>
             <result name="error">/error.jsp</result>
         </action>
-
     </package>
-
- </struts>
+    <package name="order" namespace="/" extends="struts-default">
+        <action name="order_*" class="orderAction" method="{1}">
+            <result name="success">/success.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+    </package>
+</struts>

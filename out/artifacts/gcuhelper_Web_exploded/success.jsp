@@ -11,7 +11,7 @@
     <title>success</title>
 </head>
 <body>
-<h1>hello ${user.username}</h1>
+<h1>hello ${user.accountNumber}</h1>
 </body>
 </html>
 

@@ -1,22 +1,35 @@
 package com.bugmaker.dao;
 
-import java.util.List;
 import com.bugmaker.entity.User;
+
+import java.util.List;
 
 /**
  * Created by kinthon on 17-6-23.
  */
 public interface UserDao {
+    //-------自定义函数---------//
+    /**
+     * 登录
+     */
+    public boolean login(User user);
+
+    /**
+     * 注册
+     */
+    public boolean register(User user);
+
+    //-------自定义函数---------//
+
+
+
     /**
      * 添加并保存用户
      * @param user
      */
     public void add(User user);
 
-    /**
-     * 进行登录
-     */
-    public boolean login(User user);
+
 
 
     /**
@@ -29,7 +42,7 @@ public interface UserDao {
      * @param id
      * @return
      */
-    public User getUser(int id);
+    public User getUser(String id);
 
     /**
      * 更新用户信息
@@ -42,6 +55,6 @@ public interface UserDao {
      * 根据用户id删除用户信息
      * @param id
      */
-    public void delete(int id);
+    public void delete(String id);
 
 }

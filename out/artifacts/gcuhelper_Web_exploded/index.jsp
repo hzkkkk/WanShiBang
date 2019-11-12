@@ -12,7 +12,7 @@
 </head>
 <body>
 <form action="user_login.action" method="post">
-    <input type="text" name="user.username" placeholder="输入用户名" />
+    <input type="text" name="user.accountNumber" placeholder="输入用户名" />
     <br/>
     <input type="password" name="user.password" placeholder="输入密码" />
     <br />

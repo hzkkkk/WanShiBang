@@ -1,13 +1,12 @@
 package com.bugmaker.service.impl;
 
 import com.bugmaker.dao.UserDao;
+import com.bugmaker.entity.User;
 import com.bugmaker.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
-
-import com.bugmaker.entity.User;
 
 /**
  * Created by kinthon on 17-6-23.
@@ -19,6 +18,22 @@ public class UserServiceImpl implements UserService{
     @Resource
     private UserDao userDao;
 
+    //-------自定义函数---------//
+
+    @Override
+    public boolean login(User user) {
+        return this.userDao.login(user);
+    }
+
+
+    @Override
+    public boolean register(User user) {
+        return this.userDao.register(user);
+    }
+
+    //-------自定义函数---------//
+
+
 
     @Override
     public boolean addUser(User user) {
@@ -27,17 +42,12 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public boolean login(User user) {
-        return this.userDao.login(user);
-    }
-
-    @Override
     public List getAllUser() {
         return this.userDao.getUser();
     }
 
     @Override
-    public User getUserById(int id) {
+    public User getUserById(String id) {
         return this.userDao.getUser(id);
     }
 
@@ -49,7 +59,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public boolean deleteUser(int id) {
+    public boolean deleteUser(String id) {
         this.userDao.delete(id);
         return true;
     }
