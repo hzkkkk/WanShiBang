@@ -75,7 +75,7 @@ public class UserDaoImpl implements UserDao {
         query.setString(0, user.getAccountNumber());
         query.setString(1, user.getPassword());
         System.out.println(user.getAccountNumber());
-        it=query.iterate();
+        it = query.iterate();
         if(it.hasNext()) {
             return true;
         } else {
@@ -86,16 +86,23 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public boolean changePassword(User user) {
-        String hsql = "from User u where u.accountNumber=? and u.password=?";
-        System.out.println("sql:" + hsql);
-        Query query = sessionFactory.getCurrentSession().createQuery(hsql);
-        query.setString(0, user.getAccountNumber());
-        query.setString(1, user.getAccountNumber());
-        List<User> users = query.list();
-        if (users.size() >= 1) {
-            sessionFactory.getCurrentSession().update(user);
+        String sql = "update User u set u.password = :password " +
+                "where u.accountNumber = :accountNumber ";
+
+        System.out.println("hsql:" + sql);
+        Query query = sessionFactory.getCurrentSession().createQuery(sql);
+        query.setString("password", user.getPassword());
+        query.setString("accountNumber", user.getAccountNumber());
+
+        int finished = query.executeUpdate();
+        if (finished == 1) {
+            //成功修改
             return true;
-        } else {
+        } else if (finished == 0){
+            //未更改
+            return false;
+        }else {
+            //未知错误
             return false;
         }
     }

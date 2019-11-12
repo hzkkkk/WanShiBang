@@ -114,11 +114,12 @@ public class UserAction extends ActionSupport {
         //DEBUG:辅助输出
         PrintUtil.print(user);
 
+
         //尝试更改密码,确保为登录状态
         if(userService.login(user)) {
             user = userService.getUserById(user.getAccountNumber());
-            userService.changePassword(user);
-            status = true;
+
+            status =  userService.changePassword(user);
         } else {
             status = false;
         }

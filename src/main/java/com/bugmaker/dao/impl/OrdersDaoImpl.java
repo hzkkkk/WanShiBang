@@ -2,6 +2,7 @@ package com.bugmaker.dao.impl;
 
 import com.bugmaker.dao.OrdersDao;
 import com.bugmaker.entity.Orders;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;

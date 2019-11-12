@@ -87,4 +87,34 @@ public class OrdersAction extends ActionSupport {
         connection.sendObject(map);
     }
 
+    public void seekOrderStatus(){
+        Map<String,Object> map=new HashMap<String,Object>();
+        boolean status=false;
+        HttpConnection connection=new HttpConnection();
+        //实例化输入,输入流
+        connection.getObject(ServletActionContext.getRequest(),ServletActionContext.getResponse());
+
+        //获取订单状态的详细值
+        Orders searchOrder = ordersService.getOrdersById(orders.getOrderNumber());
+
+        //查询订单状态
+        String nowStatus = searchOrder.getOrderStatus();
+
+        //DEBUG:辅助输出
+        PrintUtil.print(orders);
+
+        if(nowStatus.length() != 0){
+            status = true;
+        }
+        else {
+            status = false;
+        }
+
+        //DEBUG:辅助输出
+        PrintUtil.print(orders);
+
+        EntityToJsonUtil.transfer(searchOrder,map);
+        map.put("state",status);
+        connection.sendObject(map);
+    }
 }
