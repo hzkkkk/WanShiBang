@@ -1,0 +1,752 @@
+{
+	"info": {
+		"_postman_id": "006b9d51-fd07-45ff-aa6f-28dee8e8f38b",
+		"name": "WanShiBang",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "V1_0_7",
+			"item": [
+				{
+					"name": "用户-登录",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "85176f11-4ff0-4b41-a1bf-d1bf3b35bb57",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user.accountNumber",
+									"value": "20171",
+									"type": "text"
+								},
+								{
+									"key": "user.password",
+									"value": "20171",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/gcuhelper_Web_exploded/user_login",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"gcuhelper_Web_exploded",
+								"user_login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "用户-登录",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user.accountNumber",
+											"value": "20171",
+											"type": "text"
+										},
+										{
+											"key": "user.password",
+											"value": "20171",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{ip}}:{{port}}/gcuhelper_Web_exploded/user_login",
+									"protocol": "http",
+									"host": [
+										"{{ip}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"gcuhelper_Web_exploded",
+										"user_login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Apache-Coyote/1.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Nov 2019 01:13:42 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"password\": \"20171\",\n    \"account_Number\": \"20171\",\n    \"name\": \"test1\",\n    \"credibility\": null,\n    \"avatar\": null,\n    \"state\": true\n}"
+						},
+						{
+							"name": "用户-登录",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user.accountNumber",
+											"value": "20171",
+											"type": "text"
+										},
+										{
+											"key": "user.password",
+											"value": "20171",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{ip}}:{{port}}/gcuhelper_Web_exploded/user_login",
+									"protocol": "http",
+									"host": [
+										"{{ip}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"gcuhelper_Web_exploded",
+										"user_login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Apache-Coyote/1.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Nov 2019 01:13:42 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"password\": \"20171\",\n    \"account_Number\": \"20171\",\n    \"name\": \"test1\",\n    \"credibility\": null,\n    \"avatar\": null,\n    \"state\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "用户-注册",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user.accountNumber",
+									"value": "20171",
+									"type": "text"
+								},
+								{
+									"key": "user.password",
+									"value": "20171",
+									"type": "text"
+								},
+								{
+									"key": "user.name",
+									"value": "hzkkk",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/gcuhelper_Web_exploded/user_register",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"gcuhelper_Web_exploded",
+								"user_register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "用户-注册",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user.accountNumber",
+											"value": "20171",
+											"type": "text"
+										},
+										{
+											"key": "user.password",
+											"value": "20171",
+											"type": "text"
+										},
+										{
+											"key": "user.name",
+											"value": "hzkkk",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{ip}}:{{port}}/gcuhelper_Web_exploded/user_register",
+									"protocol": "http",
+									"host": [
+										"{{ip}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"gcuhelper_Web_exploded",
+										"user_register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Apache-Coyote/1.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Nov 2019 01:16:53 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"registerAccount\": \"20171\",\n    \"state\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "用户-更改密码",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user.accountNumber",
+									"value": "163084275",
+									"type": "text"
+								},
+								{
+									"key": "user.password",
+									"value": "444444",
+									"type": "text"
+								},
+								{
+									"key": "user.name",
+									"value": "JXQ",
+									"type": "text"
+								},
+								{
+									"key": "user.avatar",
+									"value": "Red",
+									"type": "text"
+								},
+								{
+									"key": "user.credibility",
+									"value": "100",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/gcuhelper_Web_exploded/user_changePassword",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"gcuhelper_Web_exploded",
+								"user_changePassword"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "帮助-显示订单（未完成）",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "state",
+									"value": "add",
+									"type": "text"
+								},
+								{
+									"key": "start",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "startnumber",
+									"value": "10"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/gcuhelper_Web_exploded/orders_check",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"gcuhelper_Web_exploded",
+								"orders_check"
+							]
+						},
+						"description": "帮助列表显示"
+					},
+					"response": []
+				},
+				{
+					"name": "帮助-取消订单（更改订单状态）",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "orders.OrderNumber",
+									"value": "20191103032300",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/gcuhelper_Web_exploded/orders_cancelOrders",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"gcuhelper_Web_exploded",
+								"orders_cancelOrders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "帮助-取消订单（更改订单状态）",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "orders.OrderNumber",
+											"value": "20191103032300",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{ip}}:{{port}}/gcuhelper_Web_exploded/orders_cancelOrders",
+									"protocol": "http",
+									"host": [
+										"{{ip}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"gcuhelper_Web_exploded",
+										"orders_cancelOrders"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Apache-Coyote/1.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Nov 2019 01:22:14 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"state\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "求助-接收订单",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "orders.title",
+									"value": "帮我买菜11",
+									"type": "text"
+								},
+								{
+									"key": "orders.time",
+									"value": "2019-11-3 10:30:41",
+									"type": "text"
+								},
+								{
+									"key": "orders.address",
+									"value": "广东湿111",
+									"type": "text"
+								},
+								{
+									"key": "orders.pnumber",
+									"value": "1011",
+									"type": "text"
+								},
+								{
+									"key": "orders.event",
+									"value": "帮我买个通心菜11",
+									"type": "text"
+								},
+								{
+									"key": "orders.aging",
+									"value": "2019-10-06 10:30:41",
+									"type": "text"
+								},
+								{
+									"key": "orders.contact",
+									"value": "18420100025",
+									"type": "text"
+								},
+								{
+									"key": "orders.reward",
+									"value": "10011",
+									"type": "text"
+								},
+								{
+									"key": "orders.seeker",
+									"value": "妈妈爸爸11",
+									"type": "text"
+								},
+								{
+									"key": "orders.orderNumber",
+									"value": "2",
+									"description": "主键由时间写",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "orders.helper",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "orders.orderStatus",
+									"value": "WAIT",
+									"description": "留给后端生成初始值“WAIT”",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/gcuhelper_Web_exploded/orders_receive",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"gcuhelper_Web_exploded",
+								"orders_receive"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "求助-接收订单",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "orders.title",
+											"value": "帮我买菜11",
+											"type": "text"
+										},
+										{
+											"key": "orders.time",
+											"value": "2019-11-3 10:30:41",
+											"type": "text"
+										},
+										{
+											"key": "orders.address",
+											"value": "广东湿111",
+											"type": "text"
+										},
+										{
+											"key": "orders.pnumber",
+											"value": "1011",
+											"type": "text"
+										},
+										{
+											"key": "orders.event",
+											"value": "帮我买个通心菜11",
+											"type": "text"
+										},
+										{
+											"key": "orders.aging",
+											"value": "2019-10-06 10:30:41",
+											"type": "text"
+										},
+										{
+											"key": "orders.contact",
+											"value": "18420100025",
+											"type": "text"
+										},
+										{
+											"key": "orders.reward",
+											"value": "10011",
+											"type": "text"
+										},
+										{
+											"key": "orders.seeker",
+											"value": "妈妈爸爸11",
+											"type": "text"
+										},
+										{
+											"key": "orders.orderNumber",
+											"value": "2",
+											"description": "主键由时间写",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "orders.helper",
+											"value": "123",
+											"type": "text"
+										},
+										{
+											"key": "orders.orderStatus",
+											"value": "WAIT",
+											"description": "留给后端生成初始值“WAIT”",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{ip}}:{{port}}/gcuhelper_Web_exploded/orders_receive",
+									"protocol": "http",
+									"host": [
+										"{{ip}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"gcuhelper_Web_exploded",
+										"orders_receive"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "求助-查询订单状态",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "orders.orderNumber",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/gcuhelper_Web_exploded/orders_seekOrderStatus",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"gcuhelper_Web_exploded",
+								"orders_seekOrderStatus"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "求助-查询订单状态",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "orders.orderNumber",
+											"value": "123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{ip}}:{{port}}/gcuhelper_Web_exploded/orders_seekOrderStatus",
+									"protocol": "http",
+									"host": [
+										"{{ip}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"gcuhelper_Web_exploded",
+										"orders_seekOrderStatus"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Apache-Coyote/1.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Nov 2019 01:50:29 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"state\": false\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
