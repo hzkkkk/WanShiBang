@@ -19,6 +19,11 @@ public interface UserDao {
      */
     public boolean register(User user);
 
+    /**
+     * 修改密码
+     */
+    public boolean changePassword(User user);
+
     //-------自定义函数---------//
 
 

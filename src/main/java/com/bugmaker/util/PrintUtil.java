@@ -1,5 +1,6 @@
 package com.bugmaker.util;
 
+import com.bugmaker.entity.Orders;
 import com.bugmaker.entity.User;
 
 public class PrintUtil {
@@ -10,7 +11,20 @@ public class PrintUtil {
         System.out.println("Avatar:"+user.getAvatar());
         System.out.println("Credibility:"+user.getCredibility());
     }
-    public static void printObject(Object object){
-        System.out.println(object);
+
+    public static void print(Orders orders){
+        System.out.println("OrderNumber:"+orders.getOrderNumber());
+        System.out.println("Title:"+orders.getTitle());
+        System.out.println("Time:"+orders.getTime());
+        System.out.println("Address:"+orders.getAddress());
+        System.out.println("Pnumber:"+orders.getPnumber());
+        System.out.println("Event:"+orders.getEvent());
+        System.out.println("Reward:"+orders.getReward());
+        System.out.println("Aging:"+orders.getAging());
+        System.out.println("Contact:"+orders.getContact());
+        System.out.println("Seeker:"+orders.getSeeker());
+        System.out.println("Helper:"+orders.getHelper());
+        System.out.println("OrdersStatus:"+orders.getOrderStatus());
     }
+
 }

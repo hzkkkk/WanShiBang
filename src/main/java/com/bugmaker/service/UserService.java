@@ -12,6 +12,8 @@ public interface UserService {
     public boolean login(User user);
 
     public boolean register(User user);
+
+    public boolean changePassword(User user);
 //-------自定义函数---------//
 
     public boolean addUser(User user);

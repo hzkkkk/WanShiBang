@@ -1,6 +1,6 @@
 package com.bugmaker.util;
 
-import com.bugmaker.entity.Order;
+import com.bugmaker.entity.Orders;
 import com.bugmaker.entity.User;
 
 import java.util.Map;
@@ -14,18 +14,20 @@ public class EntityToJsonUtil {
         map.put("avatar",user.getAvatar());
         map.put("credibility",user.getCredibility());
     }
-    public static void transferOrder(Order order, Map<String, Object> map){
-        map.put("Title",order.getTitle());
-        map.put("Time",order.getTime());
-        map.put("Address",order.getAddress());
-        map.put("Pnumber",order.getPnumber());
-        map.put("Event",order.getEvent());
-        map.put("Aging",order.getAging());
-        map.put("Reward",order.getReward());
-        map.put("Contact",order.getContact());
-        map.put("Seeker",order.getSeeker());
-        map.put("Helper",order.getHelper());
-        map.put("OrderStatus",order.getOrderStatus());
 
+    public static void transfer(Orders orders, Map<String, Object> map){
+        map.put("Title",orders.getTitle());
+        map.put("Time",orders.getTime("String"));
+        map.put("Address",orders.getAddress());
+        map.put("Pnumber",orders.getPnumber());
+        map.put("Event",orders.getEvent());
+        map.put("Aging",orders.getAging("String"));
+        map.put("Reward",orders.getReward());
+        map.put("Contact",orders.getContact());
+        map.put("Seeker",orders.getSeeker());
+        map.put("Helper",orders.getHelper());
+        map.put("OrdersStatus",orders.getOrderStatus());
+        map.put("OrderNumber",orders.getOrderNumber());
     }
+
 }
