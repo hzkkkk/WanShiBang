@@ -11,10 +11,10 @@ public class User {
     private String password;
     private String name;
     private String avatar;
-    private String credibility;
+    private int credibility;
 
     @Id
-    @Column(name = "AccountNumber", nullable = false, length = 20)
+    @Column(name = "AccountNumber")
     public String getAccountNumber() {
         return accountNumber;
     }
@@ -24,7 +24,7 @@ public class User {
     }
 
     @Basic
-    @Column(name = "Password", nullable = true, length = 20)
+    @Column(name = "Password")
     public String getPassword() {
         return password;
     }
@@ -34,7 +34,7 @@ public class User {
     }
 
     @Basic
-    @Column(name = "Name", nullable = true, length = 10)
+    @Column(name = "Name")
     public String getName() {
         return name;
     }
@@ -44,7 +44,7 @@ public class User {
     }
 
     @Basic
-    @Column(name = "Avatar", nullable = true, length = 30)
+    @Column(name = "Avatar")
     public String getAvatar() {
         return avatar;
     }
@@ -54,12 +54,12 @@ public class User {
     }
 
     @Basic
-    @Column(name = "Credibility", nullable = true, length = 20)
-    public String getCredibility() {
+    @Column(name = "Credibility")
+    public int getCredibility() {
         return credibility;
     }
 
-    public void setCredibility(String credibility) {
+    public void setCredibility(int credibility) {
         this.credibility = credibility;
     }
 
@@ -70,12 +70,12 @@ public class User {
 
         User user = (User) o;
 
+        if (credibility != user.credibility) return false;
         if (accountNumber != null ? !accountNumber.equals(user.accountNumber) : user.accountNumber != null)
             return false;
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
         if (name != null ? !name.equals(user.name) : user.name != null) return false;
         if (avatar != null ? !avatar.equals(user.avatar) : user.avatar != null) return false;
-        if (credibility != null ? !credibility.equals(user.credibility) : user.credibility != null) return false;
 
         return true;
     }
@@ -86,7 +86,7 @@ public class User {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (avatar != null ? avatar.hashCode() : 0);
-        result = 31 * result + (credibility != null ? credibility.hashCode() : 0);
+        result = 31 * result + credibility;
         return result;
     }
 }

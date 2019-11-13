@@ -17,6 +17,7 @@
     <context:component-scan base-package="com.bugmaker.service"/>
     <context:component-scan base-package="com.bugmaker.dao" />
 
+
     <!-- data connection setting -->
     <!-- 知识点1：Spring中配置DataSource-->
     <!-- 可以为spring配置的bean的属性设置值了-->
@@ -69,6 +70,9 @@
                 <!-- hibernate数据库方言配置(即连接哪种数据库) -->
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
                 <prop key="hibernate.autoReconnect">true</prop>
+
+                <!--<prop key="hibernate.connection.autocommit">true</prop>-->
+
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">true</prop>
@@ -84,7 +88,7 @@
 
                 <prop key="hibernate.cache.provider_class">org.hibernate.cache.HashtableCacheProvider</prop>
                 <prop key="hibernate.max_fetch_depth">3</prop>
-                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/WanShiBang</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/wanshibang</prop>
                 <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
             </props>
 

@@ -15,6 +15,10 @@ import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Created by kinthon on 17-6-25.
+ */
+
 @Controller("userAction")
 @Scope("prototype")
 public class UserAction extends ActionSupport {
@@ -30,77 +34,85 @@ public class UserAction extends ActionSupport {
     public void setUser(User user) {
         this.user = user;
     }
-
-    public void  login() {
+    //登录模块
+    public void login() {
         //接口文档约束
-        Map<String, Object> map = new HashMap<String, Object>();
-        boolean state = false;
+        System.out.println("登录功能");
+        Map<String, Object> map = new HashMap<String, Object>();                //map用来封装对象，在转换为json的时候不会出现格式错误
+        boolean status = false;                                    //给前端判断的值
 
-        //获取输入流
+        //实例化request,respond
         HttpConnection connection = new HttpConnection();
         connection.getObject(ServletActionContext.getRequest(),
                 ServletActionContext.getResponse());
 
+
 //------------逻辑代码------------//
-        //DEBUG:辅助输出
+        //DEBUG:辅助输出,查看Spring是否成功注值
         PrintUtil.print(user);
         //尝试登陆
         if(userService.login(user)) {
+            System.out.println("登录成功");
             //登陆成功，根据id查出用户的详细信息
             user = userService.getUserById(user.getAccountNumber());
-            state = true;
+            status = true;
         } else {
-            state = false;
+            status = false;
         }
 
-        //DEBUG:辅助输出
+        //DEBUG:辅助输出,输出登录查询到的用户信息
         PrintUtil.print(user);
 
         //接口文档约束
         EntityToJsonUtil.transfer(user,map);
-        map.put("state", state);
+        map.put("state", status);
 //------------逻辑代码------------//
 
         //发送数据
         connection.sendObject(map);
     }
 
-
+    //注册模块
     public void register() {
         //接口文档约束
+        System.out.println("注册功能");
         Map<String, Object> map = new HashMap<String, Object>();
-        boolean state = false;
+        boolean status = false;
 
-        //获取输入流
+        //实例化request,respond
         HttpConnection connection = new HttpConnection();
         connection.getObject(ServletActionContext.getRequest(),
                 ServletActionContext.getResponse());
-
 //------------逻辑代码------------//
+        //初始化头像参数和信誉值
+        user.setAvatar("123");
+        user.setCredibility(100);
         //DEBUG:辅助输出
         PrintUtil.print(user);
         //尝试登陆
         if(userService.register(user)) {
-            //登陆成功，根据id查出用户的详细信息
+            System.out.println("注册成功");
+            //注册成功，根据id查出用户的详细信息
             user = userService.getUserById(user.getAccountNumber());
-            state = true;
+            status = true;
         } else {
-            state = false;
+            status = false;
         }
 
         //DEBUG:辅助输出
         PrintUtil.print(user);
 
         //接口文档约束
-        map.put("state", state);
+        map.put("status", status);
         map.put("registerAccount", user.getAccountNumber());
 //------------逻辑代码------------//
 
         //发送数据
         connection.sendObject(map);
     }
-
+    //修改密码模块
     public void changePassword() {
+        System.out.println("修改密码功能");
         //接口文档约束
         Map<String, Object> map = new HashMap<String, Object>();
         boolean status = false;
@@ -113,16 +125,8 @@ public class UserAction extends ActionSupport {
 //------------逻辑代码------------//
         //DEBUG:辅助输出
         PrintUtil.print(user);
-
-
-        //尝试更改密码,确保为登录状态
-        if(userService.login(user)) {
-            user = userService.getUserById(user.getAccountNumber());
-
-            status =  userService.changePassword(user);
-        } else {
-            status = false;
-        }
+        //返回给前端判断是否成功修改密码的值
+        status = userService.changePassword(user);
 
         //DEBUG:辅助输出
         PrintUtil.print(user);
@@ -135,5 +139,4 @@ public class UserAction extends ActionSupport {
         //发送数据
         connection.sendObject(map);
     }
-
 }

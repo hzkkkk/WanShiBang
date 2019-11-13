@@ -10,19 +10,15 @@
     <constant name="struts.objectFactory" value="spring" />
 
     <package name="user" namespace="/" extends="struts-default">
-
         <action name="user_*" class="userAction" method="{1}">
             <result name="success">/success.jsp</result>
             <result name="error">/error.jsp</result>
         </action>
     </package>
-
-    <package name="orders" namespace="/" extends="struts-default">
-
+    <package name="order" namespace="/" extends="struts-default">
         <action name="orders_*" class="ordersAction" method="{1}">
             <result name="success">/success.jsp</result>
             <result name="error">/error.jsp</result>
         </action>
-
     </package>
 </struts>

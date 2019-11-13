@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
-
+/**
+ * Created by kinthon on 17-6-23.
+ */
 //注入服务
 @Service("userService")
 public class UserServiceImpl implements UserService{
@@ -20,42 +22,22 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public boolean login(User user) {
-        if(this.userDao.getUser(user.getAccountNumber()) != null) {
-            System.out.println("查询结果true");
-            return true;
-        }else{
-            System.out.println("查询结果false");
-            return false;
-        }
+        return this.userDao.login(user);
     }
 
 
     @Override
     public boolean register(User user) {
-        if(this.userDao.findUser(user)) {
-            System.out.println("用户已存在");
-            return false;
-        } else {
-            System.out.println("用户检验通过");
-
-            if (addUser(user)) {
-                System.out.println("注册成功");
-                return true;
-            }
-            else {
-                System.out.println("注册失败");
-                return false;
-            }
-        }
+        return this.userDao.register(user);
     }
-
 
     @Override
     public boolean changePassword(User user) {
         return this.userDao.changePassword(user);
     }
-
     //-------自定义函数---------//
+
+
 
     @Override
     public boolean addUser(User user) {

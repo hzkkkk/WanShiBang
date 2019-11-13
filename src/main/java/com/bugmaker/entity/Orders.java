@@ -11,19 +11,20 @@ import java.text.SimpleDateFormat;
 public class Orders {
     private String orderNumber;
     private String title;
-    private Timestamp time;
+    private Timestamp time;   //
     private String address;
-    private Integer pnumber;
+    private Integer pnumber; //
     private String event;
-    private Integer reward;
-    private Timestamp aging;
+    private Integer reward; //
+    private Timestamp aging; //
     private String contact;
     private String seeker;
     private String helper;
     private String orderStatus;
 
+
     @Id
-    @Column(name = "OrderNumber", nullable = false, length = 20)
+    @Column(name = "OrderNumber")
     public String getOrderNumber() {
         return orderNumber;
     }
@@ -33,7 +34,7 @@ public class Orders {
     }
 
     @Basic
-    @Column(name = "Title", nullable = true, length = 20)
+    @Column(name = "Title")
     public String getTitle() {
         return title;
     }
@@ -43,24 +44,24 @@ public class Orders {
     }
 
     @Basic
-    @Column(name = "Time", nullable = true)
+    @Column(name = "Time")
     public Timestamp getTime() {
         return time;
     }
+    //由于要转换为json格式，所以这里要把Timestamp转化为String类型
     public String getTime(String flag) {
         return  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(time);
     }
-
-
     public void setTime(Timestamp time) {
         this.time = time;
     }
+    //前端发过来的是String,spring必须要要求属性一致，所以这里额外添加一个set方法是String类型的，Spring就会找到这个set的方法，把值设置进去
+    //同时也把String转为Timestamp类型，以便数据库插入时。属性一致
     public void setTime(String time) {
         this.time = Timestamp.valueOf(time);;
     }
-
     @Basic
-    @Column(name = "Address", nullable = true, length = 20)
+    @Column(name = "Address")
     public String getAddress() {
         return address;
     }
@@ -70,17 +71,22 @@ public class Orders {
     }
 
     @Basic
-    @Column(name = "Pnumber", nullable = true)
+    @Column(name = "Pnumber")
     public Integer getPnumber() {
         return pnumber;
     }
-
+    public String getPnumber(String flag){
+        return pnumber.toString();
+    }
     public void setPnumber(Integer pnumber) {
         this.pnumber = pnumber;
     }
+    public void setPnumber(String pnumber){
+        this.pnumber=Integer.valueOf(pnumber);
+    }
 
     @Basic
-    @Column(name = "Event", nullable = true, length = 80)
+    @Column(name = "Event")
     public String getEvent() {
         return event;
     }
@@ -90,7 +96,7 @@ public class Orders {
     }
 
     @Basic
-    @Column(name = "Reward", nullable = true, precision = 0)
+    @Column(name = "Reward")
     public Integer getReward() {
         return reward;
     }
@@ -100,7 +106,7 @@ public class Orders {
     }
 
     @Basic
-    @Column(name = "Aging", nullable = true)
+    @Column(name = "Aging")
     public Timestamp getAging() {
         return aging;
     }
@@ -116,7 +122,7 @@ public class Orders {
     }
 
     @Basic
-    @Column(name = "Contact", nullable = true, length = 20)
+    @Column(name = "Contact")
     public String getContact() {
         return contact;
     }
@@ -126,7 +132,7 @@ public class Orders {
     }
 
     @Basic
-    @Column(name = "Seeker", nullable = true, length = 20)
+    @Column(name = "Seeker")
     public String getSeeker() {
         return seeker;
     }
@@ -136,7 +142,7 @@ public class Orders {
     }
 
     @Basic
-    @Column(name = "Helper", nullable = true, length = 20)
+    @Column(name = "Helper")
     public String getHelper() {
         return helper;
     }
@@ -146,7 +152,7 @@ public class Orders {
     }
 
     @Basic
-    @Column(name = "OrderStatus", nullable = true, length = 20)
+    @Column(name = "OrderStatus")
     public String getOrderStatus() {
         return orderStatus;
     }
@@ -193,5 +199,23 @@ public class Orders {
         result = 31 * result + (helper != null ? helper.hashCode() : 0);
         result = 31 * result + (orderStatus != null ? orderStatus.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Orders{" +
+                "orderNumber='" + orderNumber + '\'' +
+                ", title='" + title + '\'' +
+                ", time=" + time +
+                ", address='" + address + '\'' +
+                ", pnumber=" + pnumber +
+                ", event='" + event + '\'' +
+                ", reward=" + reward +
+                ", aging=" + aging +
+                ", contact='" + contact + '\'' +
+                ", seeker='" + seeker + '\'' +
+                ", helper='" + helper + '\'' +
+                ", orderStatus='" + orderStatus + '\'' +
+                '}';
     }
 }

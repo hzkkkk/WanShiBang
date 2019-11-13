@@ -7,37 +7,28 @@ import java.util.Map;
 
 
 public class EntityToJsonUtil {
-    public static void transfer(User user, Map<String, Object> map) {
-        if (user != null) {
-            map.put("account_Number", user.getAccountNumber());
-            map.put("password", user.getPassword());
-            map.put("name", user.getName());
-            map.put("avatar", user.getAvatar());
-            map.put("credibility", user.getCredibility());
-        } else {
-            System.out.println("EntityToJsonUtil.transfer(User user, Map<String, Object> map): " +
-                    " user is null");
-        }
+    //将User封装进map
+    public static void transfer(User user, Map<String, Object> map){
+        map.put("account_Number",user.getAccountNumber());
+        map.put("password",user.getPassword());
+        map.put("name",user.getName());
+        map.put("avatar",user.getAvatar());
+        map.put("credibility",user.getCredibility());
     }
+    //将Order封装进map
+    public static void transferOrder(Orders orders, Map<String, Object> map){
+        map.put("Title",orders.getTitle());
+        map.put("Time",orders.getTime("true"));
+        map.put("Address",orders.getAddress());
+        map.put("Pnumber",orders.getPnumber("true"));
+        map.put("Event",orders.getEvent());
+        map.put("Aging",orders.getAging("true"));
+        map.put("Reward",orders.getReward());
+        map.put("Contact",orders.getContact());
+        map.put("Seeker",orders.getSeeker());
+        map.put("Helper",orders.getHelper());
+        map.put("OrderStatus",orders.getOrderStatus());
+        map.put("OrderNumber",orders.getOrderNumber());
 
-    public static void transfer(Orders orders, Map<String, Object> map) {
-        if (orders != null) {
-            map.put("Title", orders.getTitle());
-            map.put("Time", orders.getTime("String"));
-            map.put("Address", orders.getAddress());
-            map.put("Pnumber", orders.getPnumber());
-            map.put("Event", orders.getEvent());
-            map.put("Aging", orders.getAging("String"));
-            map.put("Reward", orders.getReward());
-            map.put("Contact", orders.getContact());
-            map.put("Seeker", orders.getSeeker());
-            map.put("Helper", orders.getHelper());
-            map.put("OrderStatus", orders.getOrderStatus());
-            map.put("OrderNumber", orders.getOrderNumber());
-        } else {
-            System.out.println("EntityToJsonUtil.transfer(User user, Map<String, Object> map): " +
-                    " orders is null");
-        }
     }
-
 }

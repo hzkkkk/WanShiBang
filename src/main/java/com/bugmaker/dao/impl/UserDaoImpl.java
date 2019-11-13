@@ -24,89 +24,94 @@ public class UserDaoImpl implements UserDao {
     @Resource(name="sessionFactory")
     private SessionFactory sessionFactory;
 
+    //-------自定义函数---------//
+    @Override
+    public boolean login(User user) {
+        Iterator<User> it;
+        String hsql="from User u where u.accountNumber=? and u.password=?";
+        System.out.println("sql:" + hsql);
+        Query query = sessionFactory.getCurrentSession().createQuery(hsql);
+        query.setString(0, user.getAccountNumber());
+        query.setString(1, user.getPassword());
+        System.out.println(user.getAccountNumber());
+        System.out.println(user.getPassword());
+        it=query.iterate();
+        if(it.hasNext()) {
+            System.out.println("查询结果true");
+            return true;
+        } else {
+            System.out.println("查询结果false");
+            return false;
+        }
+    }
+
+
+    @Override
+    public boolean register(User user) {
+        Iterator<User> it;
+        String hsql="from User u where u.accountNumber=?";
+        System.out.println("sql:" + hsql);
+        Query query = sessionFactory.getCurrentSession().createQuery(hsql);
+        query.setString(0, user.getAccountNumber());
+        it=query.iterate();
+        if(it.hasNext()) {
+            System.out.println("用户已存在");
+            return false;
+        } else {
+            System.out.println("注册成功");
+            add(user);
+            return true;
+        }
+    }
+
+    @Override
+    public boolean changePassword(User user) {
+
+        Iterator<User> it;
+        String hsql="from User u where u.accountNumber=? ";
+        System.out.println("sql:" + hsql);
+        Query query = sessionFactory.getCurrentSession().createQuery(hsql);
+        query.setString(0, user.getAccountNumber());
+        it=query.iterate();
+        if(it.hasNext()) {
+            sessionFactory.getCurrentSession().update(user);
+            return true;
+        } else {
+            return false;
+        }
+
+
+    }
+    //-------自定义函数---------//
 
 
 
-    //-------增---------//
-    //------------增加一个---------//
+
     @Override
     public void add(User user) {
         sessionFactory.getCurrentSession().save(user);
     }
 
-    //-------删---------//
-    //------------用主键删---------//
-    @Override
-    public void delete(String accountNumber) {
-        sessionFactory.getCurrentSession().delete(
-                sessionFactory.getCurrentSession().get(User.class, accountNumber)
-        );
-    }
 
-    //-------改---------//
-    //------------用主键改---------//
-    @Override
-    public void update(User user) {
-        sessionFactory.getCurrentSession().update(user);
-    }
-
-    //-------查---------//
-    //------------查整个表---------//
     @Override
     public List getUser() {
         return sessionFactory.getCurrentSession().createQuery("FROM User").list();
     }
 
-    //------------用主键查单个---------//
     @Override
-    public User getUser(String accountNumber) {
-        return (User)sessionFactory.getCurrentSession().get(User.class, accountNumber);
+    public User getUser(String id) {
+        return (User)sessionFactory.getCurrentSession().get(User.class, id);
     }
 
-
-    //-------自定义函数---------//
-    //------------用张查单个---------//
     @Override
-    public boolean findUser(User user) {
-        Iterator<User> it;
-        String hsql="FROM User u where u.accountNumber=? and u.password=?";
-        System.out.println(hsql);
-        Query query = sessionFactory.getCurrentSession().createQuery(hsql);
-        query.setString(0, user.getAccountNumber());
-        query.setString(1, user.getPassword());
-        System.out.println(user.getAccountNumber());
-        it = query.iterate();
-        if(it.hasNext()) {
-            return true;
-        } else {
-            return false;
-        }
+    public void update(User user) {
+        sessionFactory.getCurrentSession().update(user);
     }
 
-
     @Override
-    public boolean changePassword(User user) {
-        String sql = "update User u set u.password = :password " +
-                "where u.accountNumber = :accountNumber ";
-
-        System.out.println("hsql:" + sql);
-        Query query = sessionFactory.getCurrentSession().createQuery(sql);
-        query.setString("password", user.getPassword());
-        query.setString("accountNumber", user.getAccountNumber());
-
-        int finished = query.executeUpdate();
-        if (finished == 1) {
-            //成功修改
-            return true;
-        } else if (finished == 0){
-            //未更改
-            return false;
-        }else {
-            //未知错误
-            return false;
-        }
+    public void delete(String id) {
+        sessionFactory.getCurrentSession().delete(
+                sessionFactory.getCurrentSession().get(User.class, id)
+        );
     }
-        //-------自定义函数---------//
-
-
 }
