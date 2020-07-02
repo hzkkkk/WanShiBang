@@ -99,7 +99,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.0.5</version>
+            <version>8.0.16</version>
             <!--默认生成的代码包括下面这行，我们必须删掉-->
             <!--<scope>runtime</scope>-->
         </dependency>
